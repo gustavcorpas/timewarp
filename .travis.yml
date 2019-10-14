@@ -19,7 +19,7 @@ jobs:
       script: "node deploy/prod-cleanup.js"
       
       name: "Testing runtime environment"
-      script "node deploy/run-server.js"
+      script: "node deploy/run-server.js"
       
       name: Deploying
       deploy:
