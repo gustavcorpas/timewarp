@@ -14,7 +14,7 @@ minify("index.html").then(file => {
 
 
 let filesList;
-fs.readdir("", function(err, files){
+fs.readdir("/", function(err, files){
   filesList = files.filter(function(e){
     return path.extname(e).toLowerCase() === '.html'
   });
