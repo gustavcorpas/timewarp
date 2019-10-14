@@ -1,8 +1,14 @@
 "use strict";
 const fs = require("fs");
-const minify = require('minify');
+const minify = require("minify");
 
-minify('irdex.html').catch((e) => {
+function fail(e){
 	console.error(e);
 	process.exit(1)
-});
+}
+
+minify("irdex.html").then((file) => {
+	fs.writeFile("index.html", file, () => {
+		
+	}
+}).catch(fail(e););
