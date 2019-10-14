@@ -14,15 +14,18 @@ const minify_dirs = ["", "css/", "js/", "data/"];
 
 
 function log(msg, type){
+	type = type || "passed";
 	if(type === true) type = "passed";
 	if(type === false) type = "failed";
-	type = type || "passed";
 	switch(type){
 		case "passed":
 			console.log("%c+ " + msg, "color:green");
 			break;
 		case "failed":
 			console.error("%c- " + msg, "color:red");
+			break;
+		case "warning":
+			console.error("%c! " + msg, "color:yellow");
 			break;
 		default:
 			console.log("  " + msg);
@@ -35,21 +38,14 @@ function fail(e){
 	process.exit(1);
 }
 
-log("Testytesty: t", false)
-log("Testytesty: t", true)
-log("Testytesty: t", "failed")
-log("Testytesty: t", "passed")
-log("Testytesty: t", "log")
-log("Testytesty: t")
-
 
 for(const dir of remove_dirs){
-  console.log("Removing /" + dir);
+  log("Removing /" + dir);
   rimraf(site_root + dir, [], e => {if(e) log("Could not remove file: " + e, false);});
 }
 
 for(const file of remove_files){
-  console.log("Removing " + file);
+  log("Removing " + file);
   fs.unlink(site_root + file, e => {if(e) log("Could not remove file: " + e, false);});
 }
 
@@ -60,12 +56,12 @@ for(const dir of minify_dirs){
 				for(const file of files){
 					let p = path.extname(file).toLowerCase();
 					if(p === ".html" || p === ".css" || p === ".js"){
-						console.log("Minifying " + dir + file);
-						minify(site_root + dir + file).then(minified => {
+						log("Minifying " + dir + file);
+						minify(/*site_root + dir + file*/wham.html).then(minified => {
 							fs.writeFile(site_root + dir + file, minified, e => {if(e) fail(e);});
 						}).catch(e => {fail(e);});
 					}else if(p === ".json"){
-						console.log("Minifying " + dir + file);
+						log("Minifying " + dir + file);
 						fs.readFile(site_root + dir + file, "utf-8", (e, data) => {
 							if(e) fail(e);
 							fs.writeFile(file, JSON.stringify(JSON.parse(data)), e => {if(e) fail(e);});
