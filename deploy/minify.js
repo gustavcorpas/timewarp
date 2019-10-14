@@ -20,13 +20,17 @@ for(const dir of site_dirs){
 				for(const file of files){
 					let p = path.extname(file).toLowerCase();
 					if(p === ".html" || p === ".css" || p === ".js"){
-						minify(file).then(minified => {
-							fs.writeFile(file, minified, e => {if(e) fail(e);});
+						minify(dir + file).then(minified => {
+							fs.writeFile(dir + file, minified, e => {if(e) fail(e);});
 						}).catch(e => {fail(e);});
 						console.log("Minifying: " + file);
 					}else if(p === ".json"){
-						//filesJSON.push(dir + file); -----------------
-						console.log("Minifying: " + file);
+						/*fs.readfileFile(file, minified, (e, data) => {
+							if(e) fail(e);
+							fs.writeFile(file, JSON.stringify(data), e => {if(e) fail(e);});
+						});
+						fs.writeFile(file, JSON.stringify(fs.readFile(file, minified, e => {if(e) fail(e);}););, e => {if(e) fail(e);});
+						console.log("Minifying: " + file);*/
 					}
 				}
 			});
