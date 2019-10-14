@@ -7,6 +7,6 @@ function fail(e){
 	process.exit(1);
 }
 
-minify("index.html").then(file => {
-	await fs.writeFile("index.html", "VIRK DOG", e => {if(e) fail(e);});
+minify("index.html").then(await file => {
+	fs.writeFile("index.html", "VIRK DOG", e => {if(e) fail(e);});
 }).catch(e => {fail(e);});
