@@ -7,7 +7,6 @@ jobs:
       script: "node deploy/lint.js"
       name: Minify
       script: "node deploy/minify.js"
-    - stage: Deploy
       deploy:
         provider: pages:git
         token: $GITHUB_REPO_TOKEN
