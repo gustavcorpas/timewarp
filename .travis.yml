@@ -6,14 +6,14 @@ jobs:
       name: Linting
       script: "node deploy/lint.js"
       name: "Testing runtime environment"
-      script "node deploy/run-server.js"
+      script: "node deploy/run-server.js"
     - stage: "Build & deploy"
       name: Minifying
       script: "node deploy/minify.js"
       name: "Cleaning up"
       script: "node deploy/prod-cleanup.js"
       name: "Testing runtime environment"
-      script "node deploy/run-server.js"
+      script: "node deploy/run-server.js"
       name: Deploying
       deploy:
         provider: pages:git
