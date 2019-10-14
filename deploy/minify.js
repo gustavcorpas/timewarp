@@ -14,9 +14,9 @@ const minify_dirs = ["", "css/", "js/", "data/"];
 
 
 function log(msg, type){
-	type = type || "passed";
 	if(type === true) type = "passed";
 	if(type === false) type = "failed";
+	type = type || "passed";
 	switch(type){
 		case "passed":
 			console.log("%c+ " + msg, "color:green");
