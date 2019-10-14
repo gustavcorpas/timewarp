@@ -1,7 +1,9 @@
 "use strict";
 const fs = require("fs");
-var path = require('path');
+const path = require('path');
 const minify = require("minify");
+
+const site_path = "/home/travis/build/antonjuulnaber/timewarp";
 
 function fail(e){
 	console.error(e);
@@ -14,7 +16,7 @@ minify("index.html").then(file => {
 
 
 let filesList;
-fs.readdir("/", function(err, files){
+fs.readdir(site_path, function(err, files){
   console.log(files);
   filesList = files.filter(function(e){
     return path.extname(e).toLowerCase() === '.html'
