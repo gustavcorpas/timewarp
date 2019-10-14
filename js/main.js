@@ -117,7 +117,6 @@ async function registerServiceWorker(){
 		navigator.serviceWorker.register("js/sw.js");
 	}
 }
-math.sayhi
 
 
 
