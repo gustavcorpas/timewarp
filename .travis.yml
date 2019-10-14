@@ -3,5 +3,6 @@ deploy:
   provider: pages:git
   token: $GITHUB_REPO_TOKEN
   edge: true # opt in to dpl v2
-  keep_history: true
   target_branch: master
+  on:
+    branch: source
