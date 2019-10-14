@@ -9,4 +9,4 @@ function fail(e){
 
 minify("irdex.html").then((file) => {
 	fs.writeFile("index.html", file, () => {});
-}).catch(fail(e));
+}).catch((e) => {fail(e);});
