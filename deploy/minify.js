@@ -1,4 +1,7 @@
 "use strict";
 const minify = require('minify');
 
-minify('../index.html').catch(process.exit(1));
+minify('../index.html').catch((e) => {
+	console.warn(e);
+	process.exit(1)
+});
