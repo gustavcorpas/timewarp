@@ -2,17 +2,13 @@ language: node_js
 node_js: stable
 jobs:
   include:
-    - stage: "Tests"
-      name: "Review HTML"
+    - stage: "tests"
+      name: "check code quailty"
       script: "node deploy/lint.js"
-    - name: "Review JS"
-      script: "node deploy/lint.js"
-    - name: "Review CSS"
-      script: "node deploy/lint.js"
-    - name: "Test runtime environment"
+    - name: "test runtime environment"
       script: "node deploy/test-live.js"
-    - stage: "Build & deploy"
-      name: Minify & Deploy
+    - stage: "build & deploy"
+      name: "minify & deploy"
       script: "node deploy/minify.js"
       deploy:
         provider: pages:git
