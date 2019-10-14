@@ -7,7 +7,7 @@
 	"dependencies": {
 		"eslint": "^6",
 		"minify": "^4"
-	}
+	},
 	"devDependencies": {
 		"rimraf": "^3"
 	}
