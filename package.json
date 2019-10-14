@@ -2,6 +2,8 @@
 	"repository": "antonjuulnaber/timewarp",
 	"name": "timewarp",
 	"homepage": "https://antonjuulnaber.github.io/timewarp/",
+	"author": "Anton Juul-Naber",
+	"license": "GPL-3.0",
 	"dependencies": {
 		"eslint": "^6",
 		"minify": "^4"
