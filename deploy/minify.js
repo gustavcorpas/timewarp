@@ -13,7 +13,7 @@ function fail(e){
 	process.exit(1);
 }
 
-var filesList = [];
+let filesList = [];
 
 for(const dir of site_dirs){
 	fs.stat(site_root + dir, e => {
@@ -24,10 +24,15 @@ for(const dir of site_dirs){
 					if(p === ".html" || p === ".css" || p === ".js"){
 						filesList.push(dir + file);
 					}
+					console.log("Minifying: " + filesList);
 				}
+				console.log("Minifying: " + filesList);
 			});
+			console.log("Minifying: " + filesList);
 		}
+		console.log("Minifying: " + filesList);
 	});
+	console.log("Minifying: " + filesList);
 }
 
 console.log("Minifying: " + filesList);
