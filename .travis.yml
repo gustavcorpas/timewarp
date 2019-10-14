@@ -3,7 +3,7 @@ jobs:
   include:
     - stage: Build
       name: Check code quality
-      script: deploy/lint
+      script: deploy/lint.js
     - stage: Deploy
       deploy:
         provider: pages:git
