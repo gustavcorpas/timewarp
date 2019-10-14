@@ -7,7 +7,7 @@ const minify = require("minify");
 const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
 
 const remove_dirs = ["deploy", "node_modules"];
-const remove_files = [".travis.yaml"];
+const remove_files = [".travis.yml"];
 
 //Must have slashes after, and not before
 const minify_dirs = ["", "css/", "js/", "data/"];
@@ -57,7 +57,7 @@ for(const dir of minify_dirs){
 					let p = path.extname(file).toLowerCase();
 					if(p === ".html" || p === ".css" || p === ".js"){
 						log("Minifying " + dir + file);
-						minify(/*site_root + dir + file*/wham.html).then(minified => {
+						minify(site_root + dir + file).then(minified => {
 							fs.writeFile(site_root + dir + file, minified, e => {if(e) fail(e);});
 						}).catch(e => {fail(e);});
 					}else if(p === ".json"){
