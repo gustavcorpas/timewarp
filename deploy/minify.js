@@ -7,7 +7,7 @@ const minify = require("minify");
 const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
 
 const remove_dirs = ["deploy", "node_modules"];
-const remove_files = [];
+const remove_files = [".travis.yaml"];
 
 //Must have slashes after, and not before
 const minify_dirs = ["", "css/", "js/", "data/"];
@@ -26,7 +26,7 @@ for(const dir of remove_dirs){
 
 for(const file of remove_files){
   console.log("Removing " + file);
-  fs.unlink(site_root + file, e => {if(e) fail(e);});
+  fs.unlink(site_root + file, e => {if(e) console.error("Could not remove file: " + e);});
 }
 
 for(const dir of minify_dirs){
