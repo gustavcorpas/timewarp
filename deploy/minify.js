@@ -1,19 +1,35 @@
 "use strict";
 const fs = require("fs");
 const path = require('path');
+const rimraf = require("rimraf");
 const minify = require("minify");
 
 const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
 
+const remove_dirs = ["deploy", "node_modules"];
+const remove_files = [];
+
 //Must have slashes after, and not before
-const site_dirs = ["", "css/", "js/", "data/"];
+const minify_dirs = ["", "css/", "js/", "data/"];
+
 
 function fail(e){
 	console.error(e);
 	process.exit(1);
 }
 
-for(const dir of site_dirs){
+
+for(const dir of remove_dirs){
+  console.log("Removing /" + dir);
+  rimraf(site_root + dir, [], e => {if(e) fail(e);});
+}
+
+for(const file of remove_files){
+  console.log("Removing " + file);
+  fs.unlink(site_root + file, e => {if(e) fail(e);});
+}
+
+for(const dir of minify_dirs){
 	fs.stat(site_root + dir, e => {
 		if(!e){
 			fs.readdir(site_root + dir, (e, files) => {	
