@@ -2,6 +2,11 @@ language: node_js
 node_js: stable
 jobs:
   include:
+    - stage: "Code review"
+      
+      name: Linting
+      script: "node deploy/lint.js"
+      
     - stage: "Build & Deploy"
       name: Minify
       script: "node deploy/minify.js"
