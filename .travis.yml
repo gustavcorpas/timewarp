@@ -1,6 +1,7 @@
 language: node_js
+node_js: stable
 before_install:
-  - chmod +x deploy/
+  - chmod +x deploy/*
 jobs:
   include:
     - stage: Build
