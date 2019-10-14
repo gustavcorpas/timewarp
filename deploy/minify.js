@@ -27,7 +27,7 @@ for(const dir of site_dirs){
 				*/
 				
 				for(const file in files){
-					if(path.exname(file).toLowerCase() === (".html" || ".css" || ".js")){
+					if(path.extname(file).toLowerCase() === (".html" || ".css" || ".js")){
 						filesList.push(dir + file);
 					}
 				}
