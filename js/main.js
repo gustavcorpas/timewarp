@@ -85,7 +85,7 @@ async function prepareInputs(){
 	r.addEventListener("mouseup", () => {
 		setTimeout(() => {r.select();}, 10);
 	});
-}
+}//test
 
 async function copyResult(){
 	if(!validateInputs()) return;
