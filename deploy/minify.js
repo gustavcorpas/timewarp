@@ -26,10 +26,11 @@ for(const dir of site_dirs){
 						console.log("Minifying: " + dir + file);
 					}else if(p === ".json"){
 						fs.readFile(file, (e, data) => {
+							console.log(data);
 							if(e) fail(e);
 							fs.writeFile(file, JSON.stringify(data), e => {if(e) fail(e);});
 						});
-						console.log("Minifying: " + file);
+						console.log("Minifying: " + dir + file);
 					}
 				}
 			});
