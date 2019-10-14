@@ -13,7 +13,7 @@ minify("index.html").then(file => {
 
 const content = "Jeg er sej";
 
-fs.writeFile('/index.html', content, err => {
+fs.writeFile('index.html', content, err => {
   if (err) {
     console.error(err)
     return
