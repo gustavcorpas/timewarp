@@ -2,27 +2,6 @@ language: node_js
 node_js: stable
 jobs:
   include:
-<<<<<<< Updated upstream
-    - stage: "Code review"
-    
-      name: Linting
-      script: "node deploy/lint.js"
-      
-      name: "Testing runtime environment"
-      script "node deploy/run-server.js"
-      
-    - stage: "Build & deploy"
-    
-      name: Minifying
-      script: "node deploy/minify.js"
-      
-      name: "Cleaning up"
-      script: "node deploy/prod-cleanup.js"
-      
-      name: "Testing runtime environment"
-      script "node deploy/run-server.js"
-      
-=======
     - stage: "Code review"  
       name: Linting
       script: "node deploy/lint.js"
@@ -35,7 +14,6 @@ jobs:
       script: "node deploy/prod-cleanup.js"
       name: "Testing runtime environment"
       script "node deploy/run-server.js"
->>>>>>> Stashed changes
       name: Deploying
       deploy:
         provider: pages:git
