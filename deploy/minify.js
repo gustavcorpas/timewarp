@@ -26,7 +26,7 @@ for(const dir of site_dirs){
 				console.log(filesList);
 				*/
 				
-				for(const file in files){
+				for(const file of files){
 					if(path.extname(file).toLowerCase() === (".html" || ".css" || ".js")){
 						filesList.push(dir + file);
 					}
@@ -40,7 +40,8 @@ for(const dir of site_dirs){
 	});
 }
 
-
-minify("index.html").then(file => {
-	fs.writeFile("index.html", file, e => {if(e) fail(e);});
-}).catch(e => {fail(e);});
+for(const file of files){
+	minify(file).then(minified => {
+		fs.writeFile(file, minified, e => {if(e) fail(e);});
+	}).catch(e => {fail(e);});
+}
