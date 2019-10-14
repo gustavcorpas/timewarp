@@ -1,4 +1,11 @@
 language: node_js
+jobs:
+  include:
+    - stage: Build
+      name: Check code quality
+      script: ./deploy/lint
+      name: Miny
+      script: ./deploy/minify
 deploy:
   provider: pages:git
   token: $GITHUB_REPO_TOKEN
