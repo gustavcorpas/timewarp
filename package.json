@@ -1,0 +1,7 @@
+{
+	"repository": "antonjuulnaber/timewarp",
+	"name": "timewarp",
+	"dependencies": {
+		"minify": "^4"
+	}
+}
