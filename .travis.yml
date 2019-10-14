@@ -2,11 +2,10 @@ language: node_js
 node_js: stable
 jobs:
   include:
-    - stage: Build
-      name: Check code quality
-      script: "node deploy/lint.js"
+    - stage: "Build & Deploy"
       name: Minify
       script: "node deploy/minify.js"
+      name: Deploy
       deploy:
         provider: pages:git
         token: $GITHUB_REPO_TOKEN
