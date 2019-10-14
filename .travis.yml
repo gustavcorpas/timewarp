@@ -17,3 +17,6 @@ jobs:
         commit_message: "Automatic deploy"
         on:
           branch: source
+branches:
+  except:
+    master
