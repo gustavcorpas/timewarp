@@ -4,14 +4,15 @@ jobs:
     - stage: Build
       name: Check code quality
       script: deploy/lint
-      name: Miny
+      name: Minify
       script: deploy/minify
-deploy:
-  provider: pages:git
-  token: $GITHUB_REPO_TOKEN
-  edge: true # opt in to dpl v2
-  target_branch: master
-  keep_history: false
-  commit_message: "Automatic deploy"
-  on:
-    branch: source
+    - stage: Deploy
+      deploy:
+        provider: pages:git
+        token: $GITHUB_REPO_TOKEN
+        edge: true # opt in to dpl v2
+        target_branch: master
+        keep_history: false
+        commit_message: "Automatic deploy"
+        on:
+          branch: source
