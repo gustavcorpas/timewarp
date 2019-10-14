@@ -13,7 +13,7 @@ function fail(e){
 	process.exit(1);
 }
 
-let filesList = [];
+var filesList = [];
 
 for(const dir of site_dirs){
 	fs.stat(site_root + dir, e => {
