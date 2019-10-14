@@ -18,8 +18,8 @@ for(const dir of site_dirs){
 		if(!e){
 			
 			fs.readdir(site_path + dir, (e, files) => {
-				filesList = files.filter(function(e){
-					return path.extname(e).toLowerCase() === ".html" || ".css" || ".js";
+				filesList = files.filter(e => {
+					return path.extname(e).toLowerCase() === (".html" || ".css" || ".js");
 				});
 				console.log(filesList);
 			});
