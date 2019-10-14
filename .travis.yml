@@ -2,17 +2,33 @@ language: node_js
 node_js: stable
 jobs:
   include:
-    - stage: "Build & Deploy"
-      name: Minify
+    - stage: "Code review"
+    
+      name: Linting
+      script: "node deploy/lint.js"
+      
+      name: "Testing runtime environment"
+      script: "node deploy/run-server.js"
+      
+    - stage: "Build & deploy"
+    
+      name: Minifying
       script: "node deploy/minify.js"
-      name: Deploy
+      
+      name: "Cleaning up"
+      script: "node deploy/prod-cleanup.js"
+      
+      name: "Testing runtime environment"
+      script: "node deploy/run-server.js"
+      
+      name: Deploying
       deploy:
         provider: pages:git
         token: $GITHUB_REPO_TOKEN
         edge: true # opt in to dpl v2
         target_branch: master
         keep_history: false
-        commit_message: "Automatic deploy"
+        commit_message: "Automagic deploy"
         on:
           branch: source
 branches:
