@@ -2,19 +2,16 @@ language: node_js
 node_js: stable
 jobs:
   include:
-    - stage: "Code review"  
-      name: Lint
+    - stage: "Tests"  
+      name: "Review JS code"
       script: "node deploy/lint.js"
     - name: "Test runtime environment"
+      script: "node deploy/minify.js"
       script: "node deploy/run-server.js"
     - stage: "Build & deploy"
-      name: Minify
-      script: "node deploy/minify.js"
-      name: "Clean up"
+      name: Minify & Deploy
       script: "node deploy/prod-cleanup.js"
-      name: "Test runtime environment"
-      script: "node deploy/run-server.js"
-      name: Deploy
+      script: "node deploy/minify.js"
       deploy:
         provider: pages:git
         token: $GITHUB_REPO_TOKEN
