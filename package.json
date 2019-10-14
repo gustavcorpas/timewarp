@@ -3,6 +3,7 @@
 	"name": "timewarp",
 	"homepage": "https://antonjuulnaber.github.io/timewarp/",
 	"dependencies": {
+		"eslint": "^6",
 		"minify": "^4"
 	}
 }
