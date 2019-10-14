@@ -13,20 +13,44 @@ const remove_files = [".travis.yaml"];
 const minify_dirs = ["", "css/", "js/", "data/"];
 
 
+function log(msg, type){
+	if(type === true) type = "passed";
+	if(type === false) type = "failed";
+	type = type || "passed";
+	switch(type){
+		case "passed":
+			console.log("%c+ " + msg, "color:green");
+			break;
+		case "failed":
+			console.error("%c- " + msg, "color:red");
+			break;
+		default:
+			console.log("  " + msg);
+			break;
+	}
+}
+
 function fail(e){
-	console.error(e);
+	log(e, "failed");
 	process.exit(1);
 }
+
+log("Testytesty: t", false)
+log("Testytesty: t", true)
+log("Testytesty: t", "failed")
+log("Testytesty: t", "passed")
+log("Testytesty: t", "log")
+log("Testytesty: t")
 
 
 for(const dir of remove_dirs){
   console.log("Removing /" + dir);
-  rimraf(site_root + dir, [], e => {if(e) fail(e);});
+  rimraf(site_root + dir, [], e => {if(e) log("Could not remove file: " + e, false);});
 }
 
 for(const file of remove_files){
   console.log("Removing " + file);
-  fs.unlink(site_root + file, e => {if(e) console.error("Could not remove file: " + e);});
+  fs.unlink(site_root + file, e => {if(e) log("Could not remove file: " + e, false);});
 }
 
 for(const dir of minify_dirs){

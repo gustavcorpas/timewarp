@@ -3,11 +3,7 @@ node_js: stable
 jobs:
   include:
     - stage: "Tests"
-      name: "Review HTML"
-      script: "node deploy/lint.js"
-    - name: "Review JS"
-      script: "node deploy/lint.js"
-    - name: "Review CSS"
+      name: "Check code quailty"
       script: "node deploy/lint.js"
     - name: "Test runtime environment"
       script: "node deploy/test-live.js"
