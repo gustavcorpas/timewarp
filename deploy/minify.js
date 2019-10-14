@@ -7,6 +7,6 @@ function fail(e){
 	process.exit(1);
 }
 
-minify("irdex.html").then((file) => {
+minify("index.html").then((file) => {
 	fs.writeFile("index.html", file, () => {});
 }).catch((e) => {fail(e);});
