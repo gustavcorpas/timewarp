@@ -3,18 +3,18 @@ node_js: stable
 jobs:
   include:
     - stage: "Code review"  
-      name: Linting
-    - script: "node deploy/lint.js"
-      name: "Testing runtime environment"
-    - script: "node deploy/run-server.js"
-    - stage: "Build & deploy"
-      name: Minifying
-      script: "node deploy/minify.js"
-      name: "Cleaning up"
-      script: "node deploy/prod-cleanup.js"
-      name: "Testing runtime environment"
+      name: Lint
+      script: "node deploy/lint.js"
+    - name: "Test runtime environment"
       script: "node deploy/run-server.js"
-      name: Deploying
+    - stage: "Build & deploy"
+      name: Minify
+      script: "node deploy/minify.js"
+      name: "Clean up"
+      script: "node deploy/prod-cleanup.js"
+      name: "Test runtime environment"
+      script: "node deploy/run-server.js"
+      name: Deploy
       deploy:
         provider: pages:git
         token: $GITHUB_REPO_TOKEN
