@@ -3,9 +3,9 @@ jobs:
   include:
     - stage: Build
       name: Check code quality
-      script: ./deploy/lint
+      script: ./deploy/lint.js
       name: Miny
-      script: ./deploy/minify
+      script: ./deploy/minify.js
 deploy:
   provider: pages:git
   token: $GITHUB_REPO_TOKEN
