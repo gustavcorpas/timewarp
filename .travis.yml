@@ -4,6 +4,7 @@ deploy:
   token: $GITHUB_REPO_TOKEN
   edge: true # opt in to dpl v2
   target_branch: master
-  commit_message: Automatic deploy
+  keep_history: false
+  commit_message: "Automatic deploy"
   on:
     branch: source
