@@ -4,8 +4,6 @@ jobs:
     - stage: Build
       name: Check code quality
       script: deploy/lint
-      name: Minify
-      script: deploy/minify
     - stage: Deploy
       deploy:
         provider: pages:git
