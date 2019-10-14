@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require('path');
 const minify = require("minify");
 
+const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
+
 //Must have slashes after, and not before
 const site_dirs = ["", "css/", "js/", "data/"];
 
@@ -14,17 +16,10 @@ function fail(e){
 let filesList = [];
 
 for(const dir of site_dirs){
-	fs.stat(dir, e => {
+	fs.stat(sire_root + dir, e => {
 		if(!e){
 			
-			fs.readdir(dir, (e, files) => {
-				
-				/*
-				filesList = files.filter(e => {
-					return path.extname(e).toLowerCase() === (".html" || ".css" || ".js");
-				});
-				console.log(filesList);
-				*/
+			fs.readdir(site_root + dir, (e, files) => {
 				
 				for(const file of files){
 					let p = path.extname(file).toLowerCase();
