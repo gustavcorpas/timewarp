@@ -5,7 +5,7 @@ jobs:
   include:
     - stage: Build
       name: Check code quality
-      script: deploy/lint.js
+      script: deploy/minify
     - stage: Deploy
       deploy:
         provider: pages:git
