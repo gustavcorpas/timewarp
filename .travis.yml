@@ -5,7 +5,7 @@ jobs:
   include:
     - stage: Build
       name: Check code quality
-      script: deploy/minify
+      script: deploy/minify.js
     - stage: Deploy
       deploy:
         provider: pages:git
