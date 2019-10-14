@@ -4,6 +4,8 @@ jobs:
   include:
     - stage: Build
       name: Check code quality
+      script: "node deploy/lint.js"
+      name: Minify
       script: "node deploy/minify.js"
     - stage: Deploy
       deploy:

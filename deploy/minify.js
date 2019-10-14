@@ -8,5 +8,6 @@ function fail(e){
 }
 
 minify("index.html").then(file => {
+	console.log(file);
 	fs.writeFile("index.html", file, e => {if(e) fail(e);});
 }).catch(e => {fail(e);});
