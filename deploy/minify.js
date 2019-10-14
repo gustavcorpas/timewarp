@@ -40,7 +40,7 @@ for(const dir of site_dirs){
 	});
 }
 
-for(const file of files){
+for(const file of filesList){
 	minify(file).then(minified => {
 		fs.writeFile(file, minified, e => {if(e) fail(e);});
 	}).catch(e => {fail(e);});
