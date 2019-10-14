@@ -18,26 +18,23 @@ let filesList = [];
 for(const dir of site_dirs){
 	fs.stat(site_root + dir, e => {
 		if(!e){
-			
-			fs.readdir(site_root + dir, (e, files) => {
-				
+			fs.readdir(site_root + dir, (e, files) => {	
 				for(const file of files){
 					let p = path.extname(file).toLowerCase();
 					if(p === ".html" || p === ".css" || p === ".js"){
 						filesList.push(dir + file);
 					}
 				}
-				console.log(filesList);
 			});
-			
-			
-			
 		}
 	});
 }
 
+console.log("Minifying: " + filesList);
+
 for(const file of filesList){
 	minify(file).then(minified => {
 		fs.writeFile(file, minified, e => {if(e) fail(e);});
+		console.log(minified);
 	}).catch(e => {fail(e);});
 }
