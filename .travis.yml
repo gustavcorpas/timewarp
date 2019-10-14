@@ -1,6 +1,6 @@
 language: node_js
 before_install:
-  - chmod +x deploy/minify.js
+  - chmod +x deploy/
 jobs:
   include:
     - stage: Build
