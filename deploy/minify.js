@@ -13,8 +13,6 @@ function fail(e){
 	process.exit(1);
 }
 
-let filesList = [];
-
 for(const dir of site_dirs){
 	fs.stat(site_root + dir, e => {
 		if(!e){
@@ -22,24 +20,16 @@ for(const dir of site_dirs){
 				for(const file of files){
 					let p = path.extname(file).toLowerCase();
 					if(p === ".html" || p === ".css" || p === ".js"){
-						filesList.push(dir + file);
+						minify(file).then(minified => {
+							fs.writeFile(file, minified, e => {if(e) fail(e);});
+						}).catch(e => {fail(e);});
+						console.log("Minifying: " + file);
+					}else if(p === ".json"){
+						//filesJSON.push(dir + file); -----------------
+						console.log("Minifying: " + file);
 					}
-					console.log("Minifying: " + filesList);
 				}
-				console.log("Minifying: " + filesList);
 			});
-			console.log("Minifying: " + filesList);
 		}
-		console.log("Minifying: " + filesList);
 	});
-	console.log("Minifying: " + filesList);
-}
-
-console.log("Minifying: " + filesList);
-
-for(const file of filesList){
-	minify(file).then(minified => {
-		fs.writeFile(file, minified, e => {if(e) fail(e);});
-		console.log(minified);
-	}).catch(e => {fail(e);});
 }
