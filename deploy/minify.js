@@ -25,7 +25,7 @@ for(const dir of site_dirs){
 						}).catch(e => {fail(e);});
 						console.log("Minifying: " + dir + file);
 					}else if(p === ".json"){
-						fs.readfileFile(file, (e, data) => {
+						fs.readFile(file, (e, data) => {
 							if(e) fail(e);
 							fs.writeFile(file, JSON.stringify(data), e => {if(e) fail(e);});
 						});
