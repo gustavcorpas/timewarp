@@ -16,7 +16,7 @@ function fail(e){
 let filesList = [];
 
 for(const dir of site_dirs){
-	fs.stat(sire_root + dir, e => {
+	fs.stat(site_root + dir, e => {
 		if(!e){
 			
 			fs.readdir(site_root + dir, (e, files) => {
