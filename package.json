@@ -6,6 +6,7 @@
 	"license": "GPL-3.0",
 	"dependencies": {
 		"eslint": "^6",
-		"minify": "^4"
+		"minify": "^4",
+		"rimraf": "^3"
 	}
 }
