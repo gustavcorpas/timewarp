@@ -1,7 +1,7 @@
 language: node_js
 deploy:
   provider: pages:git
-  token: <encrypted token>
+  token: $GITHUB_REPO_TOKEN
   edge: true # opt in to dpl v2
   keep_history: true
   target_branch: master
