@@ -7,11 +7,11 @@ jobs:
       script: "node deploy/lint.js"
     - name: "Test runtime environment"
       script: "node deploy/minify.js"
-      script: "node deploy/run-server.js"
+    - script: "node deploy/run-server.js"
     - stage: "Build & deploy"
       name: Minify & Deploy
       script: "node deploy/prod-cleanup.js"
-      script: "node deploy/minify.js"
+    - script: "node deploy/minify.js"
       deploy:
         provider: pages:git
         token: $GITHUB_REPO_TOKEN
