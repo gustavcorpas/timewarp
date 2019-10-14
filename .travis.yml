@@ -2,8 +2,12 @@ language: node_js
 node_js: stable
 jobs:
   include:
-    - stage: "Tests"  
-      name: "Review JS code"
+    - stage: "Tests"
+      name: "Review HTML"
+      script: "node deploy/lint.js"
+    - name: "Review JS"
+      script: "node deploy/lint.js"
+    - name: "Review CSS"
       script: "node deploy/lint.js"
     - name: "Test runtime environment"
       script: "node deploy/test-live.js"

@@ -22,12 +22,12 @@ function fail(e){
 for(const dir of remove_dirs){
   console.log("Removing /" + dir);
   rimraf(site_root + dir, [], e => {if(e) fail(e);});
-})
+}
 
 for(const file of remove_files){
   console.log("Removing " + file);
   fs.unlink(site_root + file, e => {if(e) fail(e);});
-})
+}
 
 for(const dir of minify_dirs){
 	fs.stat(site_root + dir, e => {
