@@ -23,14 +23,13 @@ for(const dir of site_dirs){
 						minify(dir + file).then(minified => {
 							fs.writeFile(dir + file, minified, e => {if(e) fail(e);});
 						}).catch(e => {fail(e);});
-						console.log("Minifying: " + file);
+						console.log("Minifying: " + dir + file);
 					}else if(p === ".json"){
-						/*fs.readfileFile(file, minified, (e, data) => {
+						fs.readfileFile(file, (e, data) => {
 							if(e) fail(e);
 							fs.writeFile(file, JSON.stringify(data), e => {if(e) fail(e);});
 						});
-						fs.writeFile(file, JSON.stringify(fs.readFile(file, minified, e => {if(e) fail(e);}););, e => {if(e) fail(e);});
-						console.log("Minifying: " + file);*/
+						console.log("Minifying: " + file);
 					}
 				}
 			});
