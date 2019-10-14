@@ -7,7 +7,7 @@ const minify = require("minify");
 const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
 
 const remove_dirs = ["deploy", "node_modules"];
-const remove_files = [".travis.yaml"];
+const remove_files = [];
 
 //Must have slashes after, and not before
 const minify_dirs = ["", "css/", "js/", "data/"];
