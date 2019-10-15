@@ -18,17 +18,17 @@ module.exports = {
 
 
 		page.on('error', e => {
-			c.log("An error occured during page testing: " + e, false);
+			c.fail("An error occured during page testing: " + e);
 		});
 
 		page.on('pageerror', e => {
-			c.log("An error occured during page testing: " + e, false);
+			c.fail("An error occured during page testing: " + e);
 		})
 
 		await page.goto(host).then(() => {
 			c.log("Connected to website", true);
 		}).catch(e => {
-			c.log("Could not connect to website: " + e, false);
+			c.fail("Could not connect to website: " + e);
 		});
 
 
@@ -41,7 +41,7 @@ module.exports = {
 		if(result >= 1){
 			c.log("Website succesfully recieved input, parsed and created output", true);
 		}else{
-			c.log("Website did not produce satisfactory output: " + result, false);
+			c.fail("Website did not produce satisfactory output: " + result);
 		}
 	}
 }

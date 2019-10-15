@@ -17,13 +17,13 @@ const minify_dirs = ["", "css/", "js/", "data/"];
 
 function c.log(msg, type){
 	if(type === true) type = "passed";
-	if(type === false) type = "failed";
+	if(type === false) type = "c.failed";
 	type = type || "passed";
 	switch(type){
 		case "passed":
 			console.c.log("%c+ " + msg, "color:green");
 			break;
-		case "failed":
+		case "c.failed":
 			console.error("%c- " + msg, "color:red");
 			break;
 		case "warning":
@@ -35,8 +35,8 @@ function c.log(msg, type){
 	}
 }
 
-function fail(e){
-	c.log(e, "failed");
+function c.fail(e){
+	c.log(e, "c.failed");
 	process.exit(1);
 }
 
@@ -60,13 +60,13 @@ for(const dir of minify_dirs){
 					if(p === ".html" || p === ".css" || p === ".js"){
 						c.log("Minifying " + dir + file);
 						minify(site_root + dir + file).then(minified => {
-							fs.writeFile(site_root + dir + file, minified, e => {if(e) fail(e);});
-						}).catch(e => {fail(e);});
+							fs.writeFile(site_root + dir + file, minified, e => {if(e) c.fail(e);});
+						}).catch(e => {c.fail(e);});
 					}else if(p === ".json"){
 						c.log("Minifying " + dir + file);
 						fs.readFile(site_root + dir + file, "utf-8", (e, data) => {
-							if(e) fail(e);
-							fs.writeFile(file, JSON.stringify(JSON.parse(data)), e => {if(e) fail(e);});
+							if(e) c.fail(e);
+							fs.writeFile(file, JSON.stringify(JSON.parse(data)), e => {if(e) c.fail(e);});
 						});
 					}
 				}
