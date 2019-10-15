@@ -19,6 +19,9 @@ jobs:
         commit_message: "Automagic deploy"
         on:
           branch: source
+    - stage: "test production"
+      name: "test runtime environment"
+      script: "node deploy/test-live.js"
 branches:
   only:
     source
