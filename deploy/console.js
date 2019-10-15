@@ -19,7 +19,7 @@ module.exports = {
 				console.log("  " + msg);
 				break;
 		}
-	}
+	},
 	fail: (e) => {
 		log(e, "failed");
 		process.exit(1);
