@@ -41,7 +41,7 @@ module.exports = {
 		if(result >= 1){
 			c.log("Website succesfully recieved input, parsed and created output", true);
 		}else{
-			c.log("Website did not produce satisfactory output", false);
+			c.log("Website did not produce satisfactory output: " + result, false);
 		}
 	}
 }
