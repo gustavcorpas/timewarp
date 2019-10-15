@@ -6,7 +6,7 @@ jobs:
       name: "check code quailty"
       script: "node deploy/lint.js"
     - name: "test runtime environment"
-      script: "node deploy/test-live.js"
+      script: "node deploy/run-live-source-test.js"
     - stage: "build & deploy"
       name: "minify & deploy"
       script: "node deploy/minify.js"
@@ -21,7 +21,7 @@ jobs:
           branch: source
     - stage: "test production"
       name: "test runtime environment"
-      script: "node deploy/test-live.js"
+      script: "node deploy/run-live-prod-test.js"
 branches:
   only:
     source
