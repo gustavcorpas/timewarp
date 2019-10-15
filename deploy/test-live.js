@@ -1,6 +1,5 @@
 "use strict";
 
-/*
 
 const puppeteer = require("puppeteer");
 
@@ -14,15 +13,21 @@ const output = "#result.output";
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
 
-await page.goto(host);
 
 page.on('error', e => {
-	console.log('error happen at the page: ' + e);
+	log("An error occured during page testing: " + e, false);
 });
 
 page.on('pageerror', e => {
-	console.log('pageerror occurred: ' + e);
+	log("An error occured during page testing: " + e, false);
 })
+
+await page.goto(host).then(
+	log("Connected to website", true);
+).catch(e => {
+	log("Could not connect to website: " + e, false);
+});
+
 
 await page.click(button1);
 await page.keyboard.type("425");
@@ -31,7 +36,7 @@ await page.keyboard.press("Enter");
 const result = await page.evaluate(() => document.querySelector("#result.output").value);
 
 if(result >= 1){
-	console.log("Success");
+	log("Website succesfully recieved input, parsed and created output", true);
 }else{
-	consolge.log("not success");
-}*/
+	log("Website did not produce satisfactory output", false);
+}
