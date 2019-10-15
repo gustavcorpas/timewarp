@@ -9,6 +9,8 @@
 		"minify": "^4"
 	},
 	"devDependencies": {
-		"rimraf": "^3"
+		"rimraf": "^3",
+		"server": "^1",
+		"puppeteer": "^1"
 	}
 }
