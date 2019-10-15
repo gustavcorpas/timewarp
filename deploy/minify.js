@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require('path');
 const rimraf = require("rimraf");
 const minify = require("minify");
+const c = require("console.js");
 
 const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
 
