@@ -3,15 +3,15 @@
 
 const puppeteer = require("puppeteer");
 
-const host = "https://antonjuulnaber.dk";
+const host = "https://timewarp.antonjuulnaber.dk";
 
 const button1 = "#start.input";
 const button2 = "#end.input";
 const output = "#result.output";
 
 
-const browser = await puppeteer.launch();
-const page = await browser.newPage();
+const browser =  puppeteer.launch();
+const page =  browser.newPage();
 
 
 page.on('error', e => {
@@ -22,18 +22,18 @@ page.on('pageerror', e => {
 	log("An error occured during page testing: " + e, false);
 })
 
-await page.goto(host).then(
+ page.goto(host).then(
 	log("Connected to website", true);
 ).catch(e => {
 	log("Could not connect to website: " + e, false);
 });
 
 
-await page.click(button1);
-await page.keyboard.type("425");
-await page.keyboard.press("Enter");
+ page.click(button1);
+ page.keyboard.type("425");
+ page.keyboard.press("Enter");
 
-const result = await page.evaluate(() => document.querySelector("#result.output").value);
+const result =  page.evaluate(() => document.querySelector("#result.output").value);
 
 if(result >= 1){
 	log("Website succesfully recieved input, parsed and created output", true);
