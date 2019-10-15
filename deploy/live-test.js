@@ -35,6 +35,10 @@ module.exports = {
 		await page.click(button1);
 		await page.keyboard.type("425");
 		await page.keyboard.press("Enter");
+		
+		const rt = await page.evaluate(() => document.querySelector("#result.output"));
+		
+		c.log(rt, "info");
 
 		const result = await page.evaluate(() => document.querySelector("#result.output").value);
 

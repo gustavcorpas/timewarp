@@ -9,7 +9,7 @@ jobs:
       script: "node deploy/run-live-source-test.js"
     - stage: "build & deploy"
       name: "minify & deploy"
-      script: "node deploy/minify.js"
+      script: "node deploy/run-minifier.js"
       deploy:
         provider: pages:git
         token: $GITHUB_REPO_TOKEN
