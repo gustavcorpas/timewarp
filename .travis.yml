@@ -1,0 +1,27 @@
+language: node_js
+node_js: stable
+jobs:
+  include:
+    - stage: "tests"
+      name: "check code quailty"
+      script: "node deploy/lint.js"
+    - name: "test runtime environment"
+      script: "node deploy/run-live-source-test.js"
+    - stage: "build & deploy"
+      name: "minify & deploy"
+      script: "node deploy/run-minifier.js"
+      deploy:
+        provider: pages:git
+        token: $GITHUB_REPO_TOKEN
+        edge: true # opt in to dpl v2
+        target_branch: master
+        keep_history: false
+        commit_message: "Automagic deploy"
+        on:
+          branch: source
+    - stage: "test production"
+      name: "test runtime environment"
+      script: "node deploy/run-live-prod-test.js"
+branches:
+  only:
+    source
