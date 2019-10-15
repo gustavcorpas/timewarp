@@ -21,7 +21,7 @@ module.exports = {
 		}
 	},
 	fail: (e) => {
-		this.log(e, "failed");
+		module.exports.log(e, "failed");
 		process.exit(1);
 	}
 }
