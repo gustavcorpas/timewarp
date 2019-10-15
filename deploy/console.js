@@ -19,6 +19,7 @@ module.exports = {
 				console.log("  " + msg);
 				break;
 		}
+		return;
 	},
 	fail: (e) => {
 		module.exports.log(e, "failed");

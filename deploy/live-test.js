@@ -48,5 +48,6 @@ module.exports = {
 			c.fail("Website did not produce satisfactory output: " + result);
 		}
 		*/
+		return;
 	}
 }
