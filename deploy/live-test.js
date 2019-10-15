@@ -5,8 +5,6 @@ module.exports = {
 	test: async (host) => {
 		const puppeteer = require("puppeteer");
 
-		const host = "https://timewarp.antonjuulnaber.dk";
-
 		const button1 = "#start.input";
 		const button2 = "#end.input";
 		const output = "#result.output";
