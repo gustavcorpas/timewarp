@@ -3,7 +3,10 @@
 module.exports = {
 	
 	test: async (host) => {
+		const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
 		const puppeteer = require("puppeteer");
+		const puppeteer = require(site_root + "deploy/console.js");
+		
 
 		const button1 = "#start.input";
 		const button2 = "#end.input";
