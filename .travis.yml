@@ -20,5 +20,5 @@ jobs:
         on:
           branch: source
 branches:
-  except:
-    master
+  only:
+    source
