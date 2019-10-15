@@ -22,9 +22,9 @@ page.on('pageerror', e => {
 	log("An error occured during page testing: " + e, false);
 })
 
- page.goto(host).then(
+ page.goto(host).then(() => {
 	log("Connected to website", true);
-).catch(e => {
+}).catch(e => {
 	log("Could not connect to website: " + e, false);
 });
 
