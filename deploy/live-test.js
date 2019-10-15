@@ -5,7 +5,7 @@ module.exports = {
 	test: async (host) => {
 		const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
 		const puppeteer = require("puppeteer");
-		const console = require(site_root + "deploy/console.js");
+		const c = require(site_root + "deploy/console.js");
 		
 
 		const button1 = "#start.input";
@@ -18,17 +18,17 @@ module.exports = {
 
 
 		page.on('error', e => {
-			log("An error occured during page testing: " + e, false);
+			c.log("An error occured during page testing: " + e, false);
 		});
 
 		page.on('pageerror', e => {
-			log("An error occured during page testing: " + e, false);
+			c.log("An error occured during page testing: " + e, false);
 		})
 
 		await page.goto(host).then(() => {
-			log("Connected to website", true);
+			c.log("Connected to website", true);
 		}).catch(e => {
-			log("Could not connect to website: " + e, false);
+			c.log("Could not connect to website: " + e, false);
 		});
 
 
@@ -39,9 +39,9 @@ module.exports = {
 		const result = await page.evaluate(() => document.querySelector("#result.output").value);
 
 		if(result >= 1){
-			log("Website succesfully recieved input, parsed and created output", true);
+			c.log("Website succesfully recieved input, parsed and created output", true);
 		}else{
-			log("Website did not produce satisfactory output", false);
+			c.log("Website did not produce satisfactory output", false);
 		}
 	}
 }
