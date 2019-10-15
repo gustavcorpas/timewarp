@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require('path');
 const rimraf = require("rimraf");
 const minify = require("minify");
-const c = require(site_root + "deploy/console.js");
+const console = require(site_root + "deploy/console.js");
 
 
 const remove_dirs = ["deploy", "node_modules"];
