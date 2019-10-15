@@ -3,6 +3,7 @@
 module.exports = {
 	
 	test: async (host) => {
+		/*
 		const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
 		const puppeteer = require("puppeteer");
 		const c = require(site_root + "deploy/console.js");
@@ -35,7 +36,7 @@ module.exports = {
 		await page.click(button1);
 		await page.keyboard.type("425");
 		await page.keyboard.press("Enter");
-		/*
+        
 		const rt = await page.evaluate(() => document.querySelector("#result.output"));
 		
 		c.log(rt, "info");
