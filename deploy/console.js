@@ -18,6 +18,7 @@ module.exports = {
 			default:
 				console.log("  " + msg);
 				break;
+		}
 	}
 	fail: (e) => {
 		log(e, "failed");
