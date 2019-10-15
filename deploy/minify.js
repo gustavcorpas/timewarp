@@ -1,11 +1,12 @@
 "use strict";
+const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
+
 const fs = require("fs");
 const path = require('path');
 const rimraf = require("rimraf");
 const minify = require("minify");
-const c = require("/console.js");
+const c = require(site_root + "deploy/console.js");
 
-const site_root = "/home/travis/build/antonjuulnaber/timewarp/";
 
 const remove_dirs = ["deploy", "node_modules"];
 const remove_files = [".travis.yml"];
